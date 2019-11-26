@@ -1,12 +1,3 @@
-window.onload = function() {
-	var input = document.getElementById("inputNumeroId");
-	input.onkeydown = function(e) {
-		if (e.keyCode == 13) {
-			clique_botao();
-		}
-	};
-}
-
 function clique_botao() {
 	document.getElementById("newInputs").innerHTML = "";
 	var numero = document.forms['form']['inputNumero'].value;
