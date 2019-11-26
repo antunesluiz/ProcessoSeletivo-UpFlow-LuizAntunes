@@ -3,7 +3,7 @@ function clique_botao() {
 	var numero = document.forms['form']['inputNumero'].value;
 	
 	//Valida se campo é diferente de nulo
-	//Caraceres não numéricos são tratados pelo próprio HTML5
+	//Caracteres não numéricos são tratados pelo próprio HTML5
 	if (numero == "" || numero < 1) {
 		alert("Insira o campo corretamente");
 		document.forms['form']['inputNumero'].focus();
@@ -17,7 +17,6 @@ function clique_botao() {
 			input.type = "number";
 
 			document.getElementById("newInputs").appendChild(input);
-			//document.getElementById("newInputs").appendChild(document.createElement("br"));
 		}
 
 		//Cria o botão para fazer a soma
@@ -25,10 +24,12 @@ function clique_botao() {
 		button.name = "newInputSubmit";
 		button.type = "button";
 		button.value = "Somar"
+		//Cria um listener para o botão
 		button.onclick = function() {
 			soma_campos();
 		}
-
+		
+		//Adiciona botão de soma no html
 		document.getElementById("newInputs").appendChild(document.createElement("br"));
 		document.getElementById("newInputs").appendChild(button);
 
@@ -37,20 +38,19 @@ function clique_botao() {
 }
 
 function soma_campos() {
-	var div = document.getElementById("newInputs");
+	//Pega todos os inputs com o nome "input". É retornado um array com todos os elementos.
 	var input = document.getElementsByName("input");
 
 	var soma = 0;
-
+	
+	//Percorre cada input
 	for (var i = 0; i < input.length; i++) {
 		//Verifica se cada campo é nulo
-		//Caraceres não numériscos são tratados pelo próprio HTML5
+		//Caracteres não numéricos são tratados pelo próprio HTML5
 		if (input[i].value == "") {
 			//tratamento de erro
-			//Caso o campo esteja vazio faz o foco para o usuário qual campo está sem preencher
+			//Caso o campo esteja vazio faz o foco para o usuário qual campo está sem preencher e manda um alerta
 			alert("Prencha os dados corretamente!");
-
-
 			input[i].focus();
 
 			return false;
